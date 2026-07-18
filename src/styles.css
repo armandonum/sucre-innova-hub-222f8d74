@@ -70,9 +70,11 @@
 :root {
   --radius: 0.625rem;
   --font-sans: "Schibsted Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --brand: oklch(0.705 0.187 47.604);
-  --surface: oklch(0.985 0 0);
-  --ink: oklch(0.205 0 0);
+  --font-serif: "Fraunces", ui-serif, Georgia, serif;
+  --brand: oklch(0.72 0.19 47);
+  --brand-2: oklch(0.62 0.22 25);
+  --surface: oklch(0.985 0.005 80);
+  --ink: oklch(0.16 0.02 60);
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
