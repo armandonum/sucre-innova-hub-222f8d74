@@ -77,14 +77,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Hackatón Sucre Innova USFX — Innovación para Bolivia" },
-      { name: "description", content: "Participa en la hackathon multidisciplinaria de la USFX. 48 horas para resolver retos reales de Bolivia: agua, salud rural, economía digital, educación y gobierno abierto. Inscríbete ahora." },
-      { name: "author", content: "Sucre Innova USFX" },
-      { property: "og:title", content: "Hackatón Sucre Innova USFX — Innovación para Bolivia" },
-      { property: "og:description", content: "Participa en la hackathon multidisciplinaria de la USFX. 48 horas para resolver retos reales de Bolivia. Inscríbete ahora." },
+      { title: "Fachada LED — Documentación · Control ESP32" },
+      { name: "description", content: "Documentación oficial del proyecto Fachada LED: control de tiras RGB y reflectores 220V con ESP32. Componentes, GPIOs, armado, instalación y uso." },
+      { name: "author", content: "Armando Nuñez Condori" },
+      { property: "og:title", content: "Fachada LED — Documentación ESP32" },
+      { property: "og:description", content: "Guía completa: componentes, esquema, instalación y uso del sistema Fachada LED v5.1.0 (GPL-3.0)." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@SucreInnova" },
     ],
     links: [
       {
