@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import communityImage from "@/assets/community-action.jpg";
 
 // IMPORTANTE: Reemplaza este enlace con la URL real de tu formulario de Google Forms.
-const GOOGLE_FORM_URL = "https://forms.google.com";
+const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSd5q-uD8pM_bl2zU6T_-QA1MEEPViNrxspJsoBbQWnyxJMEHw/viewform?usp=publish-editor";
 const EVENT_DATE = new Date("2026-08-29T09:00:00-04:00");
 
 export const Route = createFileRoute("/")({
