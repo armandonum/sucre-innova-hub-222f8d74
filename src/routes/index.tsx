@@ -1,5 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { BookOpen, 
+  Droplets, 
+  HeartPulse, 
+  Landmark, 
+  Sparkles, 
+  Store,
+  Facebook,
+  Instagram,
+  Video,
+  Phone } from "lucide-react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 import communityImage from "@/assets/community-action.jpg";
 
 // IMPORTANTE: Reemplaza este enlace con la URL real de tu formulario de Google Forms.
@@ -101,7 +111,7 @@ function RegistrationButton({
       "bg-transparent text-foreground ring-1 ring-foreground/15 hover:ring-foreground hover:bg-foreground hover:text-background",
     white: "bg-white text-foreground hover:shadow-2xl hover:-translate-y-0.5",
     "outline-red":
-     "bg-brand text-white hover:opacity-90 shadow-sm",
+      "bg-brand text-white hover:opacity-90 shadow-sm",
   };
   
   return (
@@ -162,7 +172,7 @@ function Index() {
 
           <div className="mt-8 grid md:grid-cols-2 gap-12 items-center">
             <Reveal delay={100}>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light tracking-[-0.03em] leading-[0.95] text-balance">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-medium tracking-[-0.03em] leading-[0.95] text-balance">
                 El futuro de Bolivia se{" "}
                 <span className="italic font-normal text-shimmer">diseña</span>
                 <br />
@@ -182,13 +192,13 @@ function Index() {
                 convertida en laboratorio de ideas.
               </p>
               <div className="flex flex-wrap gap-3">
-                <RegistrationButton variant="primary" className="h-14 pl-6 pr-3 gap-3 text-base">
+                <RegistrationButton variant="outline-red" className="h-14 pl-6 pr-3 gap-3 text-base">
                   Inscribirme ahora
                   <span className="ml-1 grid place-items-center size-10 rounded-full bg-white/15 backdrop-blur transition-transform group-hover:translate-x-1">
                     <ArrowRight />
                   </span>
                 </RegistrationButton>
-                <a href="#retos" className="inline-flex items-center gap-2 h-14 px-6 rounded-full font-medium ring-1 ring-foreground/15 hover:bg-card transition-colors">
+                <a href="#retos" className="inline-flex items-center justify-center h-14 px-6 rounded-full font-medium bg-slate-400 text-dark-gray hover:bg-slate-200 transition-colors">
                   Explorar los retos
                 </a>
               </div>
@@ -197,7 +207,8 @@ function Index() {
 
           {/* Countdown */}
           <Reveal delay={300}>
-            <div className="mt-16 flex flex-wrap gap-4 items-end">
+            <div className="mt-16 flex flex-wrap gap-4 items-end justify-center">
+
               <span className="text-xs uppercase tracking-[0.2em] text-foreground/50 mr-4 mb-2">Faltan</span>
               {[
                 { v: d, l: "días" },
@@ -236,7 +247,7 @@ function Index() {
       <section className="py-28 px-6">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
           <Reveal className="lg:col-span-7">
-            <span className="text-xs uppercase tracking-[0.25em] text-brand font-semibold">01 · El evento</span>
+            <span className="text-xs uppercase tracking-[0.25em] text-amber-brand font-semibold">01 · El evento</span>
             <h2 className="mt-4 text-4xl md:text-6xl font-serif font-light tracking-tight text-balance">
               No es solo código.
               <br />
@@ -262,8 +273,8 @@ function Index() {
                 { n: "48h", l: "presenciales" },
               ].map((s) => (
                 <div key={s.l} className="rounded-2xl bg-foreground text-background p-5">
-                  <div className="text-4xl md:text-5xl font-serif">{s.n}</div>
-                  <div className="mt-2 text-[10px] uppercase tracking-widest text-white/50">{s.l}</div>
+                  <div className="text-4xl md:text-5xl font-serif text-amber-600 font-normal">{s.n}</div>
+                  <div className="mt-2 text-[10px] uppercase tracking-widest text-slate-500 font-semibold">{s.l}</div>
                 </div>
               ))}
             </div>
@@ -291,10 +302,10 @@ function Index() {
       </section>
 
       {/* CHALLENGES */}
-      <section id="retos" className="py-28 px-6 bg-foreground text-background rounded-t-[48px]">
+      <section id="retos" className="py-28 px-6 bg-card/50 backdrop-blur-xl rounded-t-[48px]">
         <div className="max-w-7xl mx-auto">
           <Reveal>
-            <span className="text-xs uppercase tracking-[0.25em] text-brand font-semibold">02 · Los retos</span>
+            <span className="text-xs uppercase tracking-[0.25em] text-amber-brand font-semibold ">02 · Los retos</span>
             <h2 className="mt-4 text-4xl md:text-6xl font-serif font-light tracking-tight text-balance max-w-4xl">
               Cinco frentes donde tu solución puede cambiarlo todo.
             </h2>
@@ -311,15 +322,15 @@ function Index() {
       </section>
 
       {/* TEAM FORMATION */}
-      <section className="py-28 px-6 bg-foreground text-background">
+      <section className="py-28 px-6 bg-card/50 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <Reveal>
-            <span className="text-xs uppercase tracking-[0.25em] text-brand font-semibold">03 · El equipo</span>
+            <span className="text-xs uppercase tracking-[0.25em] text-amber-brand font-semibold">03 · El equipo</span>
             <h2 className="mt-4 text-4xl md:text-6xl font-serif font-light tracking-tight text-balance">
               La fórmula:{" "}
               <em className="text-brand">1 + 1 + 1</em>
             </h2>
-            <p className="mt-6 text-background/70 text-lg max-w-[48ch] leading-relaxed">
+            <p className="mt-6 text-muted-foreground text-lg max-w-[48ch] leading-relaxed">
               No necesitas llegar con equipo. El primer día facilitamos dinámicas
               de networking para que encuentres los perfiles que completan tu idea.
             </p>
@@ -331,10 +342,10 @@ function Index() {
                 "Mentorías técnicas y de negocio disponibles todo el evento.",
               ].map((t, i) => (
                 <li key={i} className="flex gap-4 items-start group">
-                  <span className="mt-1 grid place-items-center size-8 rounded-full bg-brand/20 text-brand font-serif shrink-0 transition-all group-hover:bg-brand group-hover:text-background">
+                  <span className="mt-1 grid place-items-center size-8 rounded-full bg-primary/20 text-primary font-serif shrink-0 transition-all group-hover:bg-primary group-hover:text-primary-foreground">
                     {i + 1}
                   </span>
-                  <p className="text-background/85 pt-1">{t}</p>
+                  <p className="text-foreground/85 pt-1">{t}</p>
                 </li>
               ))}
             </ul>
@@ -357,13 +368,13 @@ function Index() {
               </div>
               <div className="relative text-center">
                 <div className="font-serif text-7xl md:text-9xl leading-none">
-                  <span className="text-background">1</span>
+                  <span className="text-foreground">1</span>
                   <span className="text-brand">+</span>
-                  <span className="text-background">1</span>
+                  <span className="text-foreground">1</span>
                   <span className="text-brand">+</span>
-                  <span className="text-background">1</span>
+                  <span className="text-foreground">1</span>
                 </div>
-                <div className="mt-6 grid grid-cols-3 gap-4 text-[10px] uppercase tracking-widest text-background/60">
+                <div className="mt-6 grid grid-cols-3 gap-4 text-[10px] uppercase tracking-widest text-muted-foreground">
                   <span>Tecnología</span>
                   <span>Sociales</span>
                   <span>Negocios</span>
@@ -375,26 +386,26 @@ function Index() {
       </section>
 
       {/* TIMELINE */}
-      <section className="py-28 px-6 bg-foreground text-background rounded-b-[48px]">
+      <section className="py-28 px-6 bg-card/50 backdrop-blur-xl rounded-b-[48px]">
         <div className="max-w-4xl mx-auto">
           <Reveal>
-            <span className="text-xs uppercase tracking-[0.25em] text-brand font-semibold">04 · Cronograma</span>
+            <span className="text-xs uppercase tracking-[0.25em] text-amber-brand font-semibold">04 · Cronograma</span>
             <h2 className="mt-4 text-4xl md:text-6xl font-serif font-light tracking-tight text-balance">
               De la formación al pitch final.
             </h2>
           </Reveal>
 
           <div className="mt-16 relative">
-            <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-brand via-background/20 to-transparent" />
+            <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-brand via-foreground/20 to-transparent" />
             {SCHEDULE.map((it, i) => (
               <Reveal key={i} delay={i * 60}>
                 <div className="relative pl-16 pb-12 group">
-                  <span className="absolute left-[13px] top-2 size-6 rounded-full bg-foreground ring-2 ring-brand grid place-items-center">
+                  <span className="absolute left-[13px] top-2 size-6 rounded-full bg-card ring-2 ring-brand grid place-items-center">
                     <span className="size-2 rounded-full bg-brand group-hover:animate-ping" />
                   </span>
                   <div className="text-brand font-mono text-xs uppercase tracking-widest">{it.time}</div>
                   <h4 className="mt-2 font-serif text-2xl md:text-3xl">{it.title}</h4>
-                  <p className="mt-2 text-background/60 max-w-[52ch]">{it.description}</p>
+                  <p className="mt-2 text-muted-foreground max-w-[52ch]">{it.description}</p>
                 </div>
               </Reveal>
             ))}
@@ -406,7 +417,7 @@ function Index() {
       <section className="py-28 px-6">
         <div className="max-w-4xl mx-auto">
           <Reveal>
-            <span className="text-xs uppercase tracking-[0.25em] text-brand font-semibold">05 · Preguntas</span>
+            <span className="text-xs uppercase tracking-[0.25em] text-amber-brand font-semibold">05 · Preguntas</span>
             <h2 className="mt-4 text-4xl md:text-6xl font-serif font-light tracking-tight text-balance">
               Lo que necesitás saber.
             </h2>
@@ -448,32 +459,42 @@ function Index() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="relative py-32 px-6 overflow-hidden">
-        <div aria-hidden className="absolute inset-0 -z-10" style={{ background: "linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%)" }} />
-        <div aria-hidden className="absolute inset-0 -z-10 opacity-30 grain" />
-        <div className="max-w-4xl mx-auto text-center text-background">
-          <Reveal>
-            <div className="font-mono text-sm uppercase tracking-[0.3em] text-background/80">29 · Agosto</div>
-            <h2 className="mt-6 text-5xl md:text-8xl font-serif font-light tracking-tight text-balance leading-[0.95]">
-              ¿Listo para escribir el
-              <br />
-              <em>próximo capítulo?</em>
-            </h2>
-            <p className="mt-8 text-background/85 text-lg max-w-[46ch] mx-auto">
-              Cupos limitados a 60 participantes. La inscripción es individual y
-              cierra el 25 de agosto.
-            </p>
-            <div className="mt-12">
-              <RegistrationButton variant="white" className="h-16 pl-8 pr-4 gap-4 text-lg">
-                Registrar mi participación
-                <span className="grid place-items-center size-12 rounded-full bg-foreground text-background">
-                  <ArrowRight />
-                </span>
-              </RegistrationButton>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      {/* FINAL CTA */}
+<section className="relative py-32 px-6 overflow-hidden">
+  <div aria-hidden className="absolute inset-0 -z-10" style={{ background: "linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%)" }} />
+  <div aria-hidden className="absolute inset-0 -z-10 opacity-30 grain" />
+  <div className="max-w-4xl mx-auto text-center">
+    <Reveal>
+      {/* Fecha superior con leve transparencia o toque dorado */}
+      <div className="font-mono text-sm uppercase tracking-[0.3em] text-amber-brand font-medium">
+        29 · Agosto
+      </div>
+
+      {/* Título en Blanco Puro para máximo contraste */}
+      <h2 className="mt-6 text-5xl md:text-8xl font-serif font-light tracking-tight text-balance leading-[0.95] text-white">
+        ¿Listo para escribir el
+        <br />
+        <em className="text-amber-200 not-italic font-serif">próximo capítulo?</em>
+      </h2>
+
+      {/* Bajada en blanco suave */}
+      <p className="mt-8 text-white/90 text-lg max-w-[46ch] mx-auto leading-relaxed">
+        Cupos limitados a 60 participantes. La inscripción es individual y
+        cierra el 25 de agosto.
+      </p>
+
+      {/* Botón */}
+      <div className="mt-12">
+        <RegistrationButton variant="outline-red" className="h-16 pl-8 pr-4 gap-4 text-lg">
+          Registrar mi participación
+          <span className="grid place-items-center size-12 rounded-full bg-foreground text-background">
+            <ArrowRight />
+          </span>
+        </RegistrationButton>
+      </div>
+    </Reveal>
+  </div>
+</section>
 
       <Footer />
     </div>
@@ -513,23 +534,23 @@ function Nav() {
   );
 }
 
-function ChallengeCard({ number, title, description, icon }: (typeof CHALLENGES)[number]) {
+function ChallengeCard({ number, title, description, icon: Icon }: (typeof CHALLENGES)[number]) {
   return (
-    <div className="group relative p-8 rounded-3xl bg-background/[0.03] ring-1 ring-background/10 overflow-hidden h-full transition-all duration-500 hover:bg-background/[0.06] hover:-translate-y-1 hover:ring-brand/40">
+    <div className="group relative p-8 rounded-3xl bg-white ring-1 ring-slate-900/10 overflow-hidden h-full transition-all duration-300 hover:-translate-y-1 hover:ring-brand hover:shadow-2xl shadow-lg">
       <div
         aria-hidden
-        className="absolute -top-24 -right-24 h-64 w-64 rounded-full blur-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-700"
+        className="absolute -top-24 -right-24 h-64 w-64 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-700"
         style={{ background: "var(--brand)" }}
       />
       <div className="relative flex items-start justify-between">
-        <div className="grid place-items-center size-12 rounded-2xl bg-brand/10 text-brand text-2xl">
-          {icon}
+        <div className="grid place-items-center size-12 rounded-2xl bg-primary/10 text-primary">
+          <Icon className="size-6" />
         </div>
-        <span className="font-mono text-xs text-background/40">{number}</span>
+        <span className="font-mono text-xs text-slate-400">{number}</span>
       </div>
-      <h3 className="relative mt-8 font-serif text-2xl leading-tight text-balance">{title}</h3>
-      <p className="relative mt-3 text-background/60 text-sm leading-relaxed text-pretty">{description}</p>
-      <div className="relative mt-8 flex items-center gap-2 text-brand text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+      <h3 className="relative mt-8 font-serif text-2xl leading-tight text-balance text-slate-900">{title}</h3>
+      <p className="relative mt-3 text-slate-600 text-sm leading-relaxed text-pretty">{description}</p>
+      <div className="relative mt-8 flex items-center gap-2 text-slate-900 group-hover:text-brand text-sm font-medium  transition-colors duration-300 ">
         Explorar reto <ArrowRight />
       </div>
     </div>
@@ -538,36 +559,96 @@ function ChallengeCard({ number, title, description, icon }: (typeof CHALLENGES)
 
 function Footer() {
   return (
-    <footer className="py-16 px-6 border-t border">
+    <footer className="py-16 px-6 border-t border-foreground/10 bg-card">
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10 items-start">
+        {/* Identidad */}
         <div>
-          <div className="font-serif italic text-2xl">Sucre <span className="text-brand">Innova</span></div>
-          <p className="mt-3 text-xs text-foreground/50 uppercase tracking-widest">
+          <div className="font-serif italic text-2xl">
+            Sucre <span className="text-brand">Innova</span>
+          </div>
+          <p className="mt-3 text-xs text-foreground/50 uppercase tracking-widest leading-relaxed">
             Universidad Mayor, Real y Pontificia de San Francisco Xavier de Chuquisaca
           </p>
         </div>
-        <div className="text-sm text-foreground/60">
-          <div className="font-medium text-foreground">Cuándo</div>
-          <div className="mt-1">Sábado 29 de agosto · 09:00</div>
-          <div className="mt-4 font-medium text-foreground">Dónde</div>
-          <div className="mt-1">Campus central USFX · Sucre</div>
+
+        {/* Cuándo y Dónde */}
+        <div className="text-sm text-foreground/70 space-y-3">
+          <div>
+            <div className="font-medium text-foreground">Cuándo</div>
+            <div className="mt-0.5 text-xs">Sábado 29 de agosto · 09:00</div>
+          </div>
+          <div>
+            <div className="font-medium text-foreground">Dónde</div>
+            <div className="mt-0.5 text-xs">Campus central USFX · Sucre</div>
+          </div>
         </div>
-        <div className="flex md:justify-end gap-6 text-sm text-foreground/60 font-medium">
-          <a href="#" className="hover:text-brand transition-colors">Bases</a>
-          <a href="#" className="hover:text-brand transition-colors">Contacto</a>
-          <a href="#" className="hover:text-brand transition-colors">Instagram</a>
+
+        {/* Contacto y Redes */}
+        <div className="flex flex-col md:items-end gap-3 text-sm">
+          <div className="font-medium text-foreground">Contacto & Redes</div>
+          
+          {/* Teléfono / WhatsApp */}
+          <a
+            href="https://wa.me/59160300843"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-foreground/70 hover:text-brand transition-colors inline-flex items-center gap-1.5"
+          >
+            <Phone className="size-3.5 text-brand" />
+            +591 60300843
+          </a>
+
+          {/* Enlaces a Redes Sociales */}
+          <div className="flex items-center gap-4 mt-1">
+            <a
+              href="https://www.facebook.com/share/15zF9FySkku/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full bg-slate-100 hover:bg-brand hover:text-white transition-all text-slate-700"
+              title="Facebook"
+            >
+              <Facebook className="size-4" />
+            </a>
+            <a
+              href="https://www.instagram.com/sucreinnovausfx?utm_source=qr&igsh=MWpzZjZqeDBwMmh5cw=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full bg-slate-100 hover:bg-brand hover:text-white transition-all text-slate-700"
+              title="Instagram"
+            >
+              <Instagram className="size-4" />
+            </a>
+            <a
+              href="https://www.tiktok.com/@sucreinnovausfx?_r=1&_t=ZS-98EeEkPMTvp"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full bg-slate-100 hover:bg-brand hover:text-white transition-all text-slate-700"
+              title="TikTok"
+            >
+              <TikTokIcon className="size-4" />
+            </a>
+          </div>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto mt-10 pt-6 border-t border text-xs text-foreground/40 flex justify-between">
+
+      <div className="max-w-7xl mx-auto mt-10 pt-6 border-t border-foreground/10 text-xs text-foreground/40 flex justify-between">
         <span>© 2026 Sucre Innova USFX</span>
-        <span>Hecho con café boliviano.</span>
       </div>
     </footer>
   );
 }
-
 /* ---------------- Icons ---------------- */
-
+function TikTokIcon({ className = "size-4" }: { className?: string }) {
+  return (
+    <svg 
+      className={className} 
+      viewBox="0 0 24 24" 
+      fill="currentColor"
+    >
+      <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-2.901 2.858 2.895 2.895 0 0 1-2.888-2.887 2.896 2.896 0 0 1 2.888-2.887c.338 0 .66.058.961.162V9.458a6.31 6.31 0 0 0-.961-.073 6.333 6.333 0 0 0-6.333 6.333A6.333 6.333 0 0 0 9.588 22a6.333 6.333 0 0 0 6.334-6.333V9.281a8.163 8.163 0 0 0 4.782 1.528V7.362a4.856 4.856 0 0 1-1.115-.676z" />
+    </svg>
+  );
+}
 function ArrowRight() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -588,37 +669,37 @@ function Plus() {
 const CHALLENGES = [
   {
     number: "01",
-    icon: "💧",
+    icon: Droplets,
     title: "Gestión del Agua y Crisis Climática",
     description: "Uso sostenible del agua, gestión de cuencas y adaptación al cambio climático en Chuquisaca.",
   },
   {
     number: "02",
-    icon: "🩺",
+    icon: HeartPulse,
     title: "Salud Pública y Acceso Rural",
     description: "Telemedicina, gestión de citas y servicios para comunidades alejadas del centro urbano.",
   },
   {
     number: "03",
-    icon: "🛒",
+    icon: Store,
     title: "Digitalización Económica Local",
     description: "Impulso a PYMEs, comercio local y herramientas contra el contrabando.",
   },
   {
     number: "04",
-    icon: "📚",
+    icon: BookOpen,
     title: "Educación y Deserción",
     description: "Retención estudiantil, experiencia académica y democratización del conocimiento.",
   },
   {
     number: "05",
-    icon: "🏛️",
+    icon: Landmark,
     title: "Burocracia y Gobierno Abierto",
     description: "Digitalización de trámites, acceso a información pública y cercanía con la ciudadanía.",
   },
   {
     number: "✦",
-    icon: "🌱",
+    icon: Sparkles,
     title: "Reto libre",
     description: "¿Tenés una problemática urgente que no encaja? Proponela y defendela ante el jurado.",
   },
