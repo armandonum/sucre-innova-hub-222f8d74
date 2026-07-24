@@ -18,6 +18,16 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+/* ---------------- Data for Sponsors ---------------- */
+const SPONSOR_LOGOS = [
+  { name: "Innova", src: "/INNOVA.png" },
+  { name: "USFX", src: "/USFX (1).png" },
+  { name: "CORE 5G", src: "/CORE 5G.png" },
+  { name: "Núcleo Linux", src: "/nucleo_Linux.png" },
+  { name: "Federación Universitaria", src: "/FUL.png" },
+  { name: "Chuquisaca", src: "/Logo_Vector_Chuquisaca-02.png" },
+  { name: "Sociedad Científica", src: "/SOCIEDAD CIENTIFICA.png" },
+];
 /* ---------------- Utilities ---------------- */
 
 function useCountdown(target: Date) {
@@ -81,16 +91,19 @@ function RegistrationButton({
 }: {
   children: React.ReactNode;
   className?: string;
-  variant?: "primary" | "ghost" | "white";
+  variant?: "primary" | "ghost" | "white" | "outline-red";
 }) {
   const base = "group relative inline-flex items-center justify-center rounded-full font-medium transition-all duration-300 active:scale-[0.97] overflow-hidden";
   const variants = {
     primary:
-      "bg-ink text-white hover:shadow-[0_20px_60px_-15px_var(--brand)] hover:-translate-y-0.5",
+      "bg-foreground text-background hover:shadow-[0_20px_60px_-15px_var(--brand)] hover:-translate-y-0.5",
     ghost:
-      "bg-transparent text-ink ring-1 ring-ink/15 hover:ring-ink hover:bg-ink hover:text-white",
-    white: "bg-white text-ink hover:shadow-2xl hover:-translate-y-0.5",
+      "bg-transparent text-foreground ring-1 ring-foreground/15 hover:ring-foreground hover:bg-foreground hover:text-background",
+    white: "bg-white text-foreground hover:shadow-2xl hover:-translate-y-0.5",
+    "outline-red":
+      "bg-transparent text-foreground ring-1 ring-brand hover:bg-brand hover:text-white",
   };
+  
   return (
     <a
       href={GOOGLE_FORM_URL}
@@ -117,7 +130,7 @@ function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
-    <div className="min-h-screen bg-surface font-sans text-ink selection:bg-brand/30">
+    <div className="min-h-screen bg-background font-sans text-foreground selection:bg-brand/30">
       <Nav />
 
       {/* HERO */}
@@ -138,7 +151,7 @@ function Index() {
 
         <div className="max-w-7xl mx-auto">
           <Reveal>
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/60 backdrop-blur px-4 py-1.5 ring-1 ring-ink/10 text-xs font-medium tracking-wider uppercase">
+            <div className="inline-flex items-center gap-2 rounded-full bg-card/60 backdrop-blur px-4 py-1.5 ring-1 ring-foreground/10 text-xs font-medium tracking-wider uppercase">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-brand" />
@@ -147,18 +160,23 @@ function Index() {
             </div>
           </Reveal>
 
-          <Reveal delay={100}>
-            <h1 className="mt-8 text-5xl md:text-7xl lg:text-[8.5rem] font-serif font-light tracking-[-0.03em] leading-[0.95] text-balance">
-              El futuro de Bolivia se{" "}
-              <span className="italic font-normal text-shimmer">diseña</span>
-              <br />
-              en <span className="italic font-normal">48 horas.</span>
-            </h1>
-          </Reveal>
+          <div className="mt-8 grid md:grid-cols-2 gap-12 items-center">
+            <Reveal delay={100}>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-light tracking-[-0.03em] leading-[0.95] text-balance">
+                El futuro de Bolivia se{" "}
+                <span className="italic font-normal text-shimmer">diseña</span>
+                <br />
+                en <span className="italic font-normal">48 horas.</span>
+              </h1>
+            </Reveal>
+            <Reveal delay={150} className="hidden md:flex justify-center">
+              <img src="/logo.jpeg" alt="Logo Sucre Innova" className="w-full max-w-sm rounded-2xl shadow-2xl" />
+            </Reveal>
+          </div>
 
           <Reveal delay={200}>
             <div className="mt-10 grid md:grid-cols-2 gap-10 items-end">
-              <p className="text-lg md:text-xl text-ink/70 max-w-[52ch] text-pretty leading-relaxed">
+              <p className="text-lg md:text-xl text-muted-foreground max-w-[52ch] text-pretty leading-relaxed">
                 Hackatón multidisciplinaria de Innova, USFX, CORE 5G y Núcleo Linux.
                 Cinco retos reales. Sesenta mentes brillantes. Una ciudad milenaria
                 convertida en laboratorio de ideas.
@@ -170,7 +188,7 @@ function Index() {
                     <ArrowRight />
                   </span>
                 </RegistrationButton>
-                <a href="#retos" className="inline-flex items-center gap-2 h-14 px-6 rounded-full font-medium ring-1 ring-ink/15 hover:bg-white transition-colors">
+                <a href="#retos" className="inline-flex items-center gap-2 h-14 px-6 rounded-full font-medium ring-1 ring-foreground/15 hover:bg-card transition-colors">
                   Explorar los retos
                 </a>
               </div>
@@ -180,18 +198,18 @@ function Index() {
           {/* Countdown */}
           <Reveal delay={300}>
             <div className="mt-16 flex flex-wrap gap-4 items-end">
-              <span className="text-xs uppercase tracking-[0.2em] text-ink/50 mr-4 mb-2">Faltan</span>
+              <span className="text-xs uppercase tracking-[0.2em] text-foreground/50 mr-4 mb-2">Faltan</span>
               {[
                 { v: d, l: "días" },
                 { v: h, l: "horas" },
                 { v: m, l: "min" },
                 { v: s, l: "seg" },
               ].map((u) => (
-                <div key={u.l} className="flex flex-col items-center min-w-[80px] md:min-w-[110px] rounded-2xl bg-white/70 backdrop-blur ring-1 ring-ink/10 px-4 py-4 shadow-sm">
+                <div key={u.l} className="flex flex-col items-center min-w-[80px] md:min-w-[110px] rounded-2xl bg-card/70 backdrop-blur ring-1 ring-foreground/10 px-4 py-4 shadow-sm">
                   <span className="font-serif text-4xl md:text-6xl tabular-nums leading-none">
                     {String(u.v).padStart(2, "0")}
                   </span>
-                  <span className="mt-2 text-[10px] uppercase tracking-widest text-ink/50">{u.l}</span>
+                  <span className="mt-2 text-[10px] uppercase tracking-widest text-foreground/50">{u.l}</span>
                 </div>
               ))}
             </div>
@@ -200,15 +218,19 @@ function Index() {
       </section>
 
       {/* Sponsors marquee */}
-      <section className="border-y border-ink/5 bg-white py-6 overflow-hidden">
-        <div className="flex animate-marquee whitespace-nowrap gap-16 text-ink/40 font-serif italic text-xl">
-          {[...Array(2)].flatMap((_, i) =>
-            ["Innova", "USFX", "CORE 5G", "Núcleo Linux", "Federación Universitaria", "Chuquisaca"].map((n) => (
-              <span key={`${i}-${n}`} className="tracking-tight">
-                — {n}
-              </span>
-            ))
-          )}
+      <section className="border-y border-foreground bg-card py-6 overflow-hidden"> {/* Mantener bg-card para el tema oscuro */}
+        <div className="flex animate-marquee whitespace-nowrap items-center">
+          {[...SPONSOR_LOGOS, ...SPONSOR_LOGOS].map((sponsor, i) => (
+            <img
+              key={`${sponsor.name}-${i}`}
+              src={sponsor.src}
+              alt={sponsor.name}
+              className="h-15 object-contain mx-8" // Ajusta la altura y el margen según necesites
+              loading="lazy"
+            />
+          
+          ))}
+        
         </div>
       </section>
 
@@ -222,7 +244,7 @@ function Index() {
               <br />
               Es <em className="text-brand">Bolivia resolviéndose a sí misma.</em>
             </h2>
-            <div className="mt-8 space-y-5 text-ink/70 text-lg leading-relaxed max-w-[58ch]">
+            <div className="mt-8 space-y-5 text-muted-foreground text-lg leading-relaxed max-w-[58ch]">
               <p>
                 Sucre Innova reúne durante una semana intensa a estudiantes de
                 todas las facultades para prototipar soluciones a problemáticas
@@ -230,8 +252,8 @@ function Index() {
                 negocio y MVPs funcionales.
               </p>
               <p>
-                Lo importante es la <strong className="text-ink">aplicabilidad</strong> y
-                la <strong className="text-ink">viabilidad</strong> de tu solución
+                Lo importante es la <strong className="text-foreground">aplicabilidad</strong> y
+                la <strong className="text-foreground">viabilidad</strong> de tu solución
                 — no el stack que uses.
               </p>
             </div>
@@ -241,7 +263,7 @@ function Index() {
                 { n: "12", l: "equipos" },
                 { n: "48h", l: "presenciales" },
               ].map((s) => (
-                <div key={s.l} className="rounded-2xl bg-ink text-white p-5">
+                <div key={s.l} className="rounded-2xl bg-foreground text-background p-5">
                   <div className="text-4xl md:text-5xl font-serif">{s.n}</div>
                   <div className="mt-2 text-[10px] uppercase tracking-widest text-white/50">{s.l}</div>
                 </div>
@@ -250,16 +272,16 @@ function Index() {
           </Reveal>
 
           <Reveal delay={150} className="lg:col-span-5">
-            <div className="relative aspect-[4/5] rounded-[36px] overflow-hidden ring-1 ring-ink/10 group">
+            <div className="relative aspect-[4/5] rounded-[36px] overflow-hidden ring-1 ring-foreground/10 group">
               <img
                 src={communityImage}
                 alt="Estudiantes colaborando durante la hackatón"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
                 loading="lazy"
-                width={1024} height={1024}
+                width={1024} height={1280}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 text-white">
+              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6 text-foreground">
                 <div className="font-serif italic text-2xl leading-snug">
                   "Chuquisaca es una ciudad-taller: aquí las ideas se prototipan
                   entre patios coloniales y aulas universitarias."
@@ -271,7 +293,7 @@ function Index() {
       </section>
 
       {/* CHALLENGES */}
-      <section id="retos" className="py-28 px-6 bg-ink text-white rounded-t-[48px]">
+      <section id="retos" className="py-28 px-6 bg-foreground text-background rounded-t-[48px]">
         <div className="max-w-7xl mx-auto">
           <Reveal>
             <span className="text-xs uppercase tracking-[0.25em] text-brand font-semibold">02 · Los retos</span>
@@ -291,7 +313,7 @@ function Index() {
       </section>
 
       {/* TEAM FORMATION */}
-      <section className="py-28 px-6 bg-ink text-white">
+      <section className="py-28 px-6 bg-foreground text-background">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <Reveal>
             <span className="text-xs uppercase tracking-[0.25em] text-brand font-semibold">03 · El equipo</span>
@@ -299,7 +321,7 @@ function Index() {
               La fórmula:{" "}
               <em className="text-brand">1 + 1 + 1</em>
             </h2>
-            <p className="mt-6 text-white/70 text-lg max-w-[48ch] leading-relaxed">
+            <p className="mt-6 text-background/70 text-lg max-w-[48ch] leading-relaxed">
               No necesitas llegar con equipo. El primer día facilitamos dinámicas
               de networking para que encuentres los perfiles que completan tu idea.
             </p>
@@ -311,10 +333,10 @@ function Index() {
                 "Mentorías técnicas y de negocio disponibles todo el evento.",
               ].map((t, i) => (
                 <li key={i} className="flex gap-4 items-start group">
-                  <span className="mt-1 grid place-items-center size-8 rounded-full bg-brand/20 text-brand font-serif shrink-0 transition-all group-hover:bg-brand group-hover:text-white">
+                  <span className="mt-1 grid place-items-center size-8 rounded-full bg-brand/20 text-brand font-serif shrink-0 transition-all group-hover:bg-brand group-hover:text-background">
                     {i + 1}
                   </span>
-                  <p className="text-white/85 pt-1">{t}</p>
+                  <p className="text-background/85 pt-1">{t}</p>
                 </li>
               ))}
             </ul>
@@ -337,13 +359,13 @@ function Index() {
               </div>
               <div className="relative text-center">
                 <div className="font-serif text-7xl md:text-9xl leading-none">
-                  <span className="text-white">1</span>
+                  <span className="text-background">1</span>
                   <span className="text-brand">+</span>
-                  <span className="text-white">1</span>
+                  <span className="text-background">1</span>
                   <span className="text-brand">+</span>
-                  <span className="text-white">1</span>
+                  <span className="text-background">1</span>
                 </div>
-                <div className="mt-6 grid grid-cols-3 gap-4 text-[10px] uppercase tracking-widest text-white/60">
+                <div className="mt-6 grid grid-cols-3 gap-4 text-[10px] uppercase tracking-widest text-background/60">
                   <span>Tecnología</span>
                   <span>Sociales</span>
                   <span>Negocios</span>
@@ -355,7 +377,7 @@ function Index() {
       </section>
 
       {/* TIMELINE */}
-      <section className="py-28 px-6 bg-ink text-white rounded-b-[48px]">
+      <section className="py-28 px-6 bg-foreground text-background rounded-b-[48px]">
         <div className="max-w-4xl mx-auto">
           <Reveal>
             <span className="text-xs uppercase tracking-[0.25em] text-brand font-semibold">04 · Cronograma</span>
@@ -365,16 +387,16 @@ function Index() {
           </Reveal>
 
           <div className="mt-16 relative">
-            <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-brand via-white/20 to-transparent" />
+            <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-brand via-background/20 to-transparent" />
             {SCHEDULE.map((it, i) => (
               <Reveal key={i} delay={i * 60}>
                 <div className="relative pl-16 pb-12 group">
-                  <span className="absolute left-[13px] top-2 size-6 rounded-full bg-ink ring-2 ring-brand grid place-items-center">
+                  <span className="absolute left-[13px] top-2 size-6 rounded-full bg-foreground ring-2 ring-brand grid place-items-center">
                     <span className="size-2 rounded-full bg-brand group-hover:animate-ping" />
                   </span>
                   <div className="text-brand font-mono text-xs uppercase tracking-widest">{it.time}</div>
                   <h4 className="mt-2 font-serif text-2xl md:text-3xl">{it.title}</h4>
-                  <p className="mt-2 text-white/60 max-w-[52ch]">{it.description}</p>
+                  <p className="mt-2 text-background/60 max-w-[52ch]">{it.description}</p>
                 </div>
               </Reveal>
             ))}
@@ -392,7 +414,7 @@ function Index() {
             </h2>
           </Reveal>
 
-          <div className="mt-14 divide-y divide-ink/10 border-y border-ink/10">
+          <div className="mt-14 divide-y divide-foreground/10 border-y border-foreground/10">
             {FAQ.map((f, i) => {
               const open = openFaq === i;
               return (
@@ -405,8 +427,8 @@ function Index() {
                       {f.q}
                     </span>
                     <span
-                      className={`grid place-items-center size-10 rounded-full ring-1 ring-ink/15 shrink-0 transition-transform duration-300 ${
-                        open ? "rotate-45 bg-ink text-white" : ""
+                      className={`grid place-items-center size-10 rounded-full ring-1 ring-foreground/15 shrink-0 transition-transform duration-300 ${
+                        open ? "rotate-45 bg-foreground text-background" : ""
                       }`}
                     >
                       <Plus />
@@ -417,7 +439,7 @@ function Index() {
                     style={{ gridTemplateRows: open ? "1fr" : "0fr" }}
                   >
                     <div className="overflow-hidden">
-                      <p className="pb-6 text-ink/70 max-w-[62ch] leading-relaxed">{f.a}</p>
+                      <p className="pb-6 text-muted-foreground max-w-[62ch] leading-relaxed">{f.a}</p>
                     </div>
                   </div>
                 </div>
@@ -431,22 +453,22 @@ function Index() {
       <section className="relative py-32 px-6 overflow-hidden">
         <div aria-hidden className="absolute inset-0 -z-10" style={{ background: "linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%)" }} />
         <div aria-hidden className="absolute inset-0 -z-10 opacity-30 grain" />
-        <div className="max-w-4xl mx-auto text-center text-white">
+        <div className="max-w-4xl mx-auto text-center text-background">
           <Reveal>
-            <div className="font-mono text-sm uppercase tracking-[0.3em] text-white/80">29 · Agosto</div>
+            <div className="font-mono text-sm uppercase tracking-[0.3em] text-background/80">29 · Agosto</div>
             <h2 className="mt-6 text-5xl md:text-8xl font-serif font-light tracking-tight text-balance leading-[0.95]">
               ¿Listo para escribir el
               <br />
               <em>próximo capítulo?</em>
             </h2>
-            <p className="mt-8 text-white/85 text-lg max-w-[46ch] mx-auto">
+            <p className="mt-8 text-background/85 text-lg max-w-[46ch] mx-auto">
               Cupos limitados a 60 participantes. La inscripción es individual y
               cierra el 25 de agosto.
             </p>
             <div className="mt-12">
               <RegistrationButton variant="white" className="h-16 pl-8 pr-4 gap-4 text-lg">
                 Registrar mi participación
-                <span className="grid place-items-center size-12 rounded-full bg-ink text-white">
+                <span className="grid place-items-center size-12 rounded-full bg-foreground text-background">
                   <ArrowRight />
                 </span>
               </RegistrationButton>
@@ -473,19 +495,19 @@ function Nav() {
   return (
     <nav
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-surface/80 backdrop-blur-xl border-b border-ink/5" : "bg-transparent"
+        scrolled ? "bg-white/90 backdrop-blur-lg border-b border-light-border" : "bg-white border-b border-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between text-dark-gray">
         <a href="#" className="flex items-center gap-2 font-serif italic text-xl tracking-tight">
           Sucre <span className="text-brand">Innova</span>
         </a>
-        <div className="hidden md:flex items-center gap-8 text-sm text-ink/70">
-          <a href="#retos" className="hover:text-ink transition-colors">Retos</a>
-          <a href="#" className="hover:text-ink transition-colors">Equipos</a>
-          <a href="#" className="hover:text-ink transition-colors">Cronograma</a>
+        <div className="hidden md:flex items-center gap-8 text-sm text-dark-gray/70">
+          <a href="#retos" className="hover:text-dark-gray transition-colors">Retos</a>
+          <a href="#" className="hover:text-dark-gray transition-colors">Equipos</a>
+          <a href="#" className="hover:text-dark-gray transition-colors">Cronograma</a>
         </div>
-        <RegistrationButton variant="primary" className="h-10 px-5 text-sm">
+        <RegistrationButton variant="outline-red" className="h-10 px-5 text-sm" bg-ring>
           Inscribirme
         </RegistrationButton>
       </div>
@@ -495,7 +517,7 @@ function Nav() {
 
 function ChallengeCard({ number, title, description, icon }: (typeof CHALLENGES)[number]) {
   return (
-    <div className="group relative p-8 rounded-3xl bg-white/[0.03] ring-1 ring-white/10 overflow-hidden h-full transition-all duration-500 hover:bg-white/[0.06] hover:-translate-y-1 hover:ring-brand/40">
+    <div className="group relative p-8 rounded-3xl bg-background/[0.03] ring-1 ring-background/10 overflow-hidden h-full transition-all duration-500 hover:bg-background/[0.06] hover:-translate-y-1 hover:ring-brand/40">
       <div
         aria-hidden
         className="absolute -top-24 -right-24 h-64 w-64 rounded-full blur-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-700"
@@ -505,10 +527,10 @@ function ChallengeCard({ number, title, description, icon }: (typeof CHALLENGES)
         <div className="grid place-items-center size-12 rounded-2xl bg-brand/10 text-brand text-2xl">
           {icon}
         </div>
-        <span className="font-mono text-xs text-white/40">{number}</span>
+        <span className="font-mono text-xs text-background/40">{number}</span>
       </div>
       <h3 className="relative mt-8 font-serif text-2xl leading-tight text-balance">{title}</h3>
-      <p className="relative mt-3 text-white/60 text-sm leading-relaxed text-pretty">{description}</p>
+      <p className="relative mt-3 text-background/60 text-sm leading-relaxed text-pretty">{description}</p>
       <div className="relative mt-8 flex items-center gap-2 text-brand text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
         Explorar reto <ArrowRight />
       </div>
@@ -518,27 +540,27 @@ function ChallengeCard({ number, title, description, icon }: (typeof CHALLENGES)
 
 function Footer() {
   return (
-    <footer className="py-16 px-6 border-t border-ink/5">
+    <footer className="py-16 px-6 border-t border">
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10 items-start">
         <div>
           <div className="font-serif italic text-2xl">Sucre <span className="text-brand">Innova</span></div>
-          <p className="mt-3 text-xs text-ink/50 uppercase tracking-widest">
+          <p className="mt-3 text-xs text-foreground/50 uppercase tracking-widest">
             Universidad Mayor, Real y Pontificia de San Francisco Xavier de Chuquisaca
           </p>
         </div>
-        <div className="text-sm text-ink/60">
-          <div className="font-medium text-ink">Cuándo</div>
+        <div className="text-sm text-foreground/60">
+          <div className="font-medium text-foreground">Cuándo</div>
           <div className="mt-1">Sábado 29 de agosto · 09:00</div>
-          <div className="mt-4 font-medium text-ink">Dónde</div>
+          <div className="mt-4 font-medium text-foreground">Dónde</div>
           <div className="mt-1">Campus central USFX · Sucre</div>
         </div>
-        <div className="flex md:justify-end gap-6 text-sm text-ink/60 font-medium">
+        <div className="flex md:justify-end gap-6 text-sm text-foreground/60 font-medium">
           <a href="#" className="hover:text-brand transition-colors">Bases</a>
           <a href="#" className="hover:text-brand transition-colors">Contacto</a>
           <a href="#" className="hover:text-brand transition-colors">Instagram</a>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto mt-10 pt-6 border-t border-ink/5 text-xs text-ink/40 flex justify-between">
+      <div className="max-w-7xl mx-auto mt-10 pt-6 border-t border text-xs text-foreground/40 flex justify-between">
         <span>© 2026 Sucre Innova USFX</span>
         <span>Hecho con café boliviano.</span>
       </div>
