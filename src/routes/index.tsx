@@ -477,7 +477,7 @@ function Index() {
       </p>
 
       <div className="mt-12">
-        <RegistrationButton variant="white" className="h-16 pl-8 pr-4 gap-4 text-lg">
+        <RegistrationButton variant="white" className="h-16 pl-8 pr-4 gap-4 text-lg text-red-600">
           Registrar mi participación
           <span className="grid place-items-center size-12 rounded-full bg-foreground text-background">
             <ArrowRight />
@@ -518,7 +518,7 @@ function Nav() {
           <a href="#" className="hover:text-dark-gray transition-colors">Equipos</a>
           <a href="#" className="hover:text-dark-gray transition-colors">Cronograma</a>
         </div>
-        <RegistrationButton variant="outline-red" className="h-10 px-5 text-sm text-dark-gray/70" bg-ring>
+        <RegistrationButton variant="outline-red" className="h-10 px-5 text-sm text-red-600" >
           Inscribirme
         </RegistrationButton>
       </div>
