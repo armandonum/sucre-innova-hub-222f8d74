@@ -101,7 +101,7 @@ function RegistrationButton({
       "bg-transparent text-foreground ring-1 ring-foreground/15 hover:ring-foreground hover:bg-foreground hover:text-background",
     white: "bg-white text-foreground hover:shadow-2xl hover:-translate-y-0.5",
     "outline-red":
-      "bg-transparent text-foreground ring-1 ring-brand hover:bg-brand hover:text-white",
+     "bg-brand text-white hover:opacity-90 shadow-sm",
   };
   
   return (
@@ -228,9 +228,7 @@ function Index() {
               className="h-15 object-contain mx-8" // Ajusta la altura y el margen según necesites
               loading="lazy"
             />
-          
           ))}
-        
         </div>
       </section>
 
@@ -507,7 +505,7 @@ function Nav() {
           <a href="#" className="hover:text-dark-gray transition-colors">Equipos</a>
           <a href="#" className="hover:text-dark-gray transition-colors">Cronograma</a>
         </div>
-        <RegistrationButton variant="outline-red" className="h-10 px-5 text-sm" bg-ring>
+        <RegistrationButton variant="outline-red" className="h-10 px-5 text-sm">
           Inscribirme
         </RegistrationButton>
       </div>
