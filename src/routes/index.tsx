@@ -449,33 +449,44 @@ function Index() {
         </div>
       </section>
 
-      {/* FINAL CTA */}
       <section className="relative py-32 px-6 overflow-hidden">
-        <div aria-hidden className="absolute inset-0 -z-10" style={{ background: "linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%)" }} />
-        <div aria-hidden className="absolute inset-0 -z-10 opacity-30 grain" />
-        <div className="max-w-4xl mx-auto text-center text-background">
-          <Reveal>
-            <div className="font-mono text-sm uppercase tracking-[0.3em] text-background/80">29 · Agosto</div>
-            <h2 className="mt-6 text-5xl md:text-8xl font-serif font-light tracking-tight text-balance leading-[0.95]">
-              ¿Listo para escribir el
-              <br />
-              <em>próximo capítulo?</em>
-            </h2>
-            <p className="mt-8 text-background/85 text-lg max-w-[46ch] mx-auto">
-              Cupos limitados a 60 participantes. La inscripción es individual y
-              cierra el 25 de agosto.
-            </p>
-            <div className="mt-12">
-              <RegistrationButton variant="white" className="h-16 pl-8 pr-4 gap-4 text-lg">
-                Registrar mi participación
-                <span className="grid place-items-center size-12 rounded-full bg-foreground text-background">
-                  <ArrowRight />
-                </span>
-              </RegistrationButton>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+  <div
+    aria-hidden
+    className="absolute inset-0 -z-10"
+    style={{
+      background: "linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%)",
+    }}
+  />
+  <div aria-hidden className="absolute inset-0 -z-10 opacity-15 grain" />
+
+  <div className="max-w-4xl mx-auto text-center text-white">
+    <Reveal>
+      <div className="font-mono text-sm uppercase tracking-[0.3em] text-white/80">
+        29 · Agosto
+      </div>
+
+      <h2 className="mt-6 text-5xl md:text-8xl font-serif font-light tracking-tight text-balance leading-[0.95]">
+        ¿Listo para escribir el
+        <br />
+        <em className="italic">próximo capítulo?</em>
+      </h2>
+
+      <p className="mt-8 text-white/90 text-lg max-w-[46ch] mx-auto">
+        Cupos limitados a 60 participantes. La inscripción es individual y
+        cierra el 25 de agosto.
+      </p>
+
+      <div className="mt-12">
+        <RegistrationButton variant="white" className="h-16 pl-8 pr-4 gap-4 text-lg">
+          Registrar mi participación
+          <span className="grid place-items-center size-12 rounded-full bg-foreground text-background">
+            <ArrowRight />
+          </span>
+        </RegistrationButton>
+      </div>
+    </Reveal>
+  </div>
+</section>
 
       <Footer />
     </div>
@@ -507,7 +518,7 @@ function Nav() {
           <a href="#" className="hover:text-dark-gray transition-colors">Equipos</a>
           <a href="#" className="hover:text-dark-gray transition-colors">Cronograma</a>
         </div>
-        <RegistrationButton variant="outline-red" className="h-10 px-5 text-sm" bg-ring>
+        <RegistrationButton variant="outline-red" className="h-10 px-5 text-sm text-dark-gray/70" bg-ring>
           Inscribirme
         </RegistrationButton>
       </div>
