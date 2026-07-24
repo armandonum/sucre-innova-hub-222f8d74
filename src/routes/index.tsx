@@ -471,7 +471,7 @@ function Index() {
 
   <div className="max-w-4xl mx-auto text-center text-white">
     <Reveal>
-      <div className="font-mono text-sm uppercase tracking-[0.3em] text-white/80">
+      <div className="font-mono text-sm uppercase tracking-[0.3em] text-amber-brand/90">
         29 · Agosto
       </div>
 
@@ -481,14 +481,14 @@ function Index() {
         <em className="italic">próximo capítulo?</em>
       </h2>
 
-      <p className="mt-8 text-white/90 text-lg max-w-[46ch] mx-auto">
+      <p className="mt-8  text-lg max-w-[46ch] mx-auto text-amber-brand/90">
         Cupos limitados a 60 participantes. La inscripción es individual y
         cierra el 25 de agosto.
       </p>
 
 
       <div className="mt-12">
-        <RegistrationButton variant="white" className="h-16 pl-8 pr-4 gap-4 text-lg text-red-600">
+        <RegistrationButton variant="outline-red" className="h-16 pl-8 pr-4 gap-4 text-lg text-red-600">
           Registrar mi participación
           <span className="grid place-items-center size-12 rounded-full bg-foreground text-background">
             <ArrowRight />
