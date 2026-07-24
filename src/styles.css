@@ -32,6 +32,8 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
+  --color-sponsor: var(--sponsor);
+
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
@@ -91,6 +93,7 @@
   --background: oklch(0.98 0.005 80.5); /* Fondo cálido */
   --foreground: oklch(0.41 0.03 243.7); /* Texto principal (Gris oscuro) */
   --card: oklch(1 0 0);
+  --sponsor:oklch(39.873% 0.04641 245.747);
   --card-foreground: oklch(1 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.41 0.03 243.7);

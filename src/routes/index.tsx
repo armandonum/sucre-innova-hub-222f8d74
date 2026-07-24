@@ -229,14 +229,14 @@ function Index() {
       </section>
 
       {/* Sponsors marquee */}
-      <section className="border-y border-foreground bg-card py-6 overflow-hidden"> {/* Mantener bg-card para el tema oscuro */}
+      <section className="border-y border-foreground bg-sponsor py-6 overflow-hidden"> {/* Mantener bg-card para el tema oscuro */}
         <div className="flex animate-marquee whitespace-nowrap items-center">
           {[...SPONSOR_LOGOS, ...SPONSOR_LOGOS].map((sponsor, i) => (
             <img
               key={`${sponsor.name}-${i}`}
               src={sponsor.src}
               alt={sponsor.name}
-              className="h-15 object-contain mx-8" // Ajusta la altura y el margen según necesites
+              className="h-20 md:h-30 w-auto max-w-none object-contain mx-10" // Ajusta la altura y el margen según necesites
               loading="lazy"
             />
           ))}
