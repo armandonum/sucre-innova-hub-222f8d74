@@ -228,78 +228,67 @@ function Index() {
         </div>
       </section>
 
-      {/* Sponsors marquee */}
-      <section className="border-y border-foreground bg-card py-6 overflow-hidden"> {/* Mantener bg-card para el tema oscuro */}
-        <div className="flex animate-marquee whitespace-nowrap items-center">
-          {[...SPONSOR_LOGOS, ...SPONSOR_LOGOS].map((sponsor, i) => (
-            <img
-              key={`${sponsor.name}-${i}`}
-              src={sponsor.src}
-              alt={sponsor.name}
-              className="h-15 object-contain mx-8" // Ajusta la altura y el margen según necesites
-              loading="lazy"
-            />
-          ))}
-        </div>
-      </section>
 
-      {/* ABOUT + stats */}
-      <section className="py-28 px-6">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
-          <Reveal className="lg:col-span-7">
-            <span className="text-xs uppercase tracking-[0.25em] text-amber-brand font-semibold">01 · El evento</span>
-            <h2 className="mt-4 text-4xl md:text-6xl font-serif font-light tracking-tight text-balance">
-              No es solo código.
-              <br />
-              Es <em className="text-brand">Bolivia resolviéndose a sí misma.</em>
-            </h2>
-            <div className="mt-8 space-y-5 text-muted-foreground text-lg leading-relaxed max-w-[58ch]">
-              <p>
-                Sucre Innova reúne durante una semana intensa a estudiantes de
-                todas las facultades para prototipar soluciones a problemáticas
-                reales del país. Aceptamos maquetas, wireframes, modelos de
-                negocio y MVPs funcionales.
-              </p>
-              <p>
-                Lo importante es la <strong className="text-foreground">aplicabilidad</strong> y
-                la <strong className="text-foreground">viabilidad</strong> de tu solución
-                — no el stack que uses.
-              </p>
-            </div>
-            <div className="mt-10 grid grid-cols-3 gap-4 max-w-lg">
-              {[
-                { n: "60", l: "cupos" },
-                { n: "12", l: "equipos" },
-                { n: "48h", l: "presenciales" },
-              ].map((s) => (
-                <div key={s.l} className="rounded-2xl bg-foreground text-background p-5">
-                  <div className="text-4xl md:text-5xl font-serif text-amber-600 font-normal">{s.n}</div>
-                  <div className="mt-2 text-[10px] uppercase tracking-widest text-slate-500 font-semibold">{s.l}</div>
-                </div>
-              ))}
-            </div>
-          </Reveal>
 
-          <Reveal delay={150} className="lg:col-span-5">
-            <div className="relative aspect-[4/5] rounded-[36px] overflow-hidden ring-1 ring-foreground/10 group">
-              <img
-                src={communityImage}
-                alt="Estudiantes colaborando durante la hackatón"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
-                loading="lazy"
-                width={1024} height={1280}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 text-foreground">
-                <div className="font-serif italic text-2xl leading-snug">
-                  "Chuquisaca es una ciudad-taller: aquí las ideas se prototipan
-                  entre patios coloniales y aulas universitarias."
-                </div>
-              </div>
-            </div>
-          </Reveal>
+    {/* ABOUT + stats */}
+<section className="py-28 px-6">
+  <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
+    
+    {/* Columna de Texto Principal (7 columnas) */}
+    <Reveal className="lg:col-span-7">
+      <span className="text-xs uppercase tracking-[0.25em] text-amber-brand font-semibold">01 · El evento</span>
+      <h2 className="mt-4 text-4xl md:text-6xl font-serif font-light tracking-tight text-balance">
+        Ideas que impactan.
+        <br />
+        
+      </h2>
+      
+      <div className="mt-8 space-y-5 text-muted-foreground text-lg leading-relaxed max-w-[58ch]">
+        <p>
+          La Hackaton reúne a estudiantes de todas las disciplinas, profesionales y personas apasionadas por generar un cambio, para crear soluciones reales a problemáticas de nuestro entorno.
+        </p>
+        <p>
+          Lo verdaderamente importante es contar con una propuesta integral.
+        </p>
+
+      </div>
+
+      {/* Contadores */}
+      <div className="mt-10 grid grid-cols-3 gap-4 max-w-lg">
+        {[
+          { n: "60", l: "cupos" },
+          { n: "12", l: "equipos" },
+          { n: "48h", l: "presenciales" },
+        ].map((s) => (
+          <div key={s.l} className="rounded-2xl bg-foreground text-background p-5">
+            <div className="text-4xl md:text-5xl font-serif text-amber-600 font-normal">{s.n}</div>
+            <div className="mt-2 text-[10px] uppercase tracking-widest text-slate-500 font-semibold">{s.l}</div>
+          </div>
+        ))}
+      </div>
+    </Reveal>
+
+    {/* Columna de la Imagen (Reducida en proporciones y ancho) */}
+    <Reveal delay={150} className="lg:col-span-5 flex justify-center lg:justify-end">
+      <div className="relative w-full max-w-md aspect-[4/3] md:aspect-square rounded-[28px] overflow-hidden ring-1 ring-foreground/10 group">
+        <img
+          src={communityImage}
+          alt="Participantes colaborando durante el evento"
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
+          loading="lazy"
+          width={1024} height={1280}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+        <div className="absolute bottom-5 left-5 right-5 text-foreground">
+          <div className="font-serif italic text-lg md:text-xl leading-snug">
+            "Sucre es una ciudad-taller: aquí las ideas toman forma entre su historia y el talento de su gente."
+          </div>
         </div>
-      </section>
+      </div>
+    </Reveal>
+
+  </div>
+</section>
 
       {/* CHALLENGES */}
       <section id="retos" className="py-28 px-6 bg-card/50 backdrop-blur-xl rounded-t-[48px]">
@@ -351,49 +340,46 @@ function Index() {
             </ul>
           </Reveal>
 
-          <Reveal delay={150}>
-            <div className="relative aspect-square rounded-[36px] bg-gradient-to-br from-brand/20 via-transparent to-brand-2/20 ring-1 ring-white/10 grid place-items-center overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-                {[0, 1, 2].map((i) => (
-                  <div
-                    key={i}
-                    className="absolute rounded-full border border-brand/30"
-                    style={{
-                      width: `${40 + i * 20}%`,
-                      height: `${40 + i * 20}%`,
-                      animation: `pulse-ring 3s ${i * 0.6}s ease-out infinite`,
-                    }}
-                  />
-                ))}
-              </div>
-              <div className="relative text-center">
-                <div className="font-serif text-7xl md:text-9xl leading-none">
-                  <span className="text-foreground">1</span>
-                  <span className="text-brand">+</span>
-                  <span className="text-foreground">1</span>
-                  <span className="text-brand">+</span>
-                  <span className="text-foreground">1</span>
-                </div>
-                <div className="mt-6 grid grid-cols-3 gap-4 text-[10px] uppercase tracking-widest text-muted-foreground">
-                  <span>Tecnología</span>
-                  <span>Sociales</span>
-                  <span>Negocios</span>
-                </div>
-              </div>
-            </div>
-          </Reveal>
+         <Reveal delay={150}>
+  
+  <div className="relative max-w-sm mx-auto aspect-square rounded-[36px] bg-gradient-to-br from-brand/20 via-transparent to-brand-2/20 ring-1 ring-white/10 grid place-items-center overflow-hidden">
+    <div className="absolute inset-0 flex items-center justify-center">
+      {[0, 1, 2].map((i) => (
+        <div
+          key={i}
+          className="absolute rounded-full border border-brand/30"
+          style={{
+            width: `${40 + i * 20}%`,
+            height: `${40 + i * 20}%`,
+            animation: `pulse-ring 3s ${i * 0.6}s ease-out infinite`,
+          }}
+        />
+      ))}
+    </div>
+    <div className="relative text-center">
+      {/* Reducimos el texto proporcionalmente */}
+      <div className="font-serif text-5xl md:text-7xl leading-none">
+        <span className="text-foreground">1</span>
+        <span className="text-brand">+</span>
+        <span className="text-foreground">1</span>
+        <span className="text-brand">+</span>
+        <span className="text-foreground">1</span>
+      </div>
+      <div className="mt-4 grid grid-cols-3 gap-2 text-[10px] uppercase tracking-widest text-muted-foreground">
+        <span>Tecnología</span>
+        <span>Sociales</span>
+        <span>Negocios</span>
+      </div>
+    </div>
+  </div>
+</Reveal>
         </div>
       </section>
 
-      {/* TIMELINE */}
+      {/* TIMELINE
       <section className="py-28 px-6 bg-card/50 backdrop-blur-xl rounded-b-[48px]">
         <div className="max-w-4xl mx-auto">
-          <Reveal>
-            <span className="text-xs uppercase tracking-[0.25em] text-amber-brand font-semibold">04 · Cronograma</span>
-            <h2 className="mt-4 text-4xl md:text-6xl font-serif font-light tracking-tight text-balance">
-              De la formación al pitch final.
-            </h2>
-          </Reveal>
+       
 
           <div className="mt-16 relative">
             <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-brand via-foreground/20 to-transparent" />
@@ -411,7 +397,7 @@ function Index() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ */}
       <section className="py-28 px-6">
@@ -500,6 +486,21 @@ function Index() {
 </section>
 
       <Footer />
+            {/* Sponsors marquee */}
+      <section className="border-y border-foreground bg-card  overflow-hidden"> {/* Mantener bg-card para el tema oscuro */}
+        <div className="flex animate-marquee whitespace-nowrap items-center">
+          {[...SPONSOR_LOGOS, ...SPONSOR_LOGOS].map((sponsor, i) => (
+            <img
+              key={`${sponsor.name}-${i}`}
+              src={sponsor.src}
+              alt={sponsor.name}
+              className="h-15 object-contain mx-8" 
+              loading="lazy"
+            />
+          ))}
+        </div>
+      </section>
+
     </div>
   );
 }
@@ -527,7 +528,7 @@ function Nav() {
         <div className="hidden md:flex items-center gap-8 text-sm text-dark-gray/70">
           <a href="#retos" className="hover:text-dark-gray transition-colors">Retos</a>
           <a href="#" className="hover:text-dark-gray transition-colors">Equipos</a>
-          <a href="#" className="hover:text-dark-gray transition-colors">Cronograma</a>
+    
         </div>
 
         <RegistrationButton variant="outline-red" className="h-10 px-5 text-sm text-red-600" >
@@ -555,7 +556,7 @@ function ChallengeCard({ number, title, description, icon: Icon }: (typeof CHALL
       <h3 className="relative mt-8 font-serif text-2xl leading-tight text-balance text-slate-900">{title}</h3>
       <p className="relative mt-3 text-slate-600 text-sm leading-relaxed text-pretty">{description}</p>
       <div className="relative mt-8 flex items-center gap-2 text-slate-900 group-hover:text-brand text-sm font-medium  transition-colors duration-300 ">
-        Explorar reto <ArrowRight />
+        {/* Explorar reto <ArrowRight /> */}
       </div>
     </div>
   );
@@ -563,7 +564,7 @@ function ChallengeCard({ number, title, description, icon: Icon }: (typeof CHALL
 
 function Footer() {
   return (
-    <footer className="py-16 px-6 border-t border-foreground/10 bg-card">
+    <footer className="py-6 px-6 border-t border-foreground/10 bg-card">
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10 items-start">
         {/* Identidad */}
         <div>
@@ -709,18 +710,17 @@ const CHALLENGES = [
   },
 ] as const;
 
-const SCHEDULE = [
-  { time: "22 – 28 Agosto", title: "Semana de formación", description: "Sesiones con expertos que viven las problemáticas en carne propia. Virtual + presencial." },
-  { time: "29 Agosto · 09:00", title: "Inauguración & equipos", description: "Bienvenida, charla central, presentación oficial de los 5 retos y conformación de equipos." },
-  { time: "29 Agosto · 14:00", title: "Desarrollo del prototipo", description: "Primera iteración, mentorías express y feedback rápido para afinar la propuesta." },
-  { time: "30 Agosto · 09:00", title: "Plan de implementación", description: "Cada equipo define cómo llevar el prototipo a la realidad con apoyo de mentores." },
-  { time: "30 Agosto · 16:00", title: "Pitch final & premiación", description: "10 min de presentación + 5 min de preguntas ante el jurado. Deliberación y ganadores." },
-];
+// const SCHEDULE = [
+//   { time: "22 – 28 Agosto", title: "Semana de formación", description: "Sesiones con expertos que viven las problemáticas en carne propia. Virtual + presencial." },
+//   { time: "29 Agosto · 09:00", title: "Inauguración & equipos", description: "Bienvenida, charla central, presentación oficial de los 5 retos y conformación de equipos." },
+//   { time: "29 Agosto · 14:00", title: "Desarrollo del prototipo", description: "Primera iteración, mentorías express y feedback rápido para afinar la propuesta." },
+//   { time: "30 Agosto · 09:00", title: "Plan de implementación", description: "Cada equipo define cómo llevar el prototipo a la realidad con apoyo de mentores." },
+//   { time: "30 Agosto · 16:00", title: "Pitch final & premiación", description: "10 min de presentación + 5 min de preguntas ante el jurado. Deliberación y ganadores." },
+// ];
 
 const FAQ = [
   { q: "¿Necesito saber programar?", a: "No. Al menos un miembro de cada equipo debe ser de área no tecnológica. Buscamos diseñadores, economistas, abogados, médicos, agrónomos, comunicadores y más." },
   { q: "¿Cuánto cuesta participar?", a: "La participación es completamente gratuita gracias al apoyo de la USFX y los sponsors del evento. Se incluye alimentación durante los dos días." },
   { q: "¿Puedo inscribirme con mi equipo ya armado?", a: "La inscripción es individual y los equipos se conforman durante la inauguración según las afinidades y los retos elegidos. Esto garantiza multidisciplinariedad." },
-  { q: "¿Qué debo presentar al final?", a: "Un prototipo (puede ser maqueta, wireframe, MVP funcional o modelo de negocio) y un pitch de 10 minutos ante el jurado." },
-  { q: "¿Cuál es el premio?", a: "Los equipos ganadores reciben mentoría continuada, acceso a incubación y premios en efectivo para llevar su solución a la realidad." },
+
 ];
