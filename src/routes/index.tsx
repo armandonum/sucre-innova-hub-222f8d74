@@ -186,11 +186,7 @@ function Index() {
 
           <Reveal delay={200}>
             <div className="mt-10 grid md:grid-cols-2 gap-10 items-end">
-              <p className="text-lg md:text-xl text-muted-foreground max-w-[52ch] text-pretty leading-relaxed">
-                Hackatón multidisciplinaria de Innova, USFX, CORE 5G y Núcleo Linux.
-                Cinco retos reales. Sesenta mentes brillantes. Una ciudad milenaria
-                convertida en laboratorio de ideas.
-              </p>
+              
               <div className="flex flex-wrap gap-3">
                 <RegistrationButton variant="outline-red" className="h-14 pl-6 pr-3 gap-3 text-base">
                   Inscribirme ahora
@@ -521,20 +517,27 @@ function Nav() {
         scrolled ? "bg-white/90 backdrop-blur-lg border-b border-light-border" : "bg-white border-b border-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between text-dark-gray">
-        <a href="#" className="flex items-center gap-2 font-serif italic text-xl tracking-tight">
-          Sucre <span className="text-brand">Innova</span>
-        </a>
-        <div className="hidden md:flex items-center gap-8 text-sm text-dark-gray/70">
-          <a href="#retos" className="hover:text-dark-gray transition-colors">Retos</a>
-          <a href="#" className="hover:text-dark-gray transition-colors">Equipos</a>
-    
-        </div>
+<div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between text-dark-gray">
+  <a href="#" className="flex items-center gap-2 font-serif italic text-xl tracking-tight">    
+    {/* Logo corregido: h-8 o h-10 lo ajusta al Navbar */}
+    <img 
+      src="/logo.jpeg" 
+      alt="Logo Sucre Innova" 
+      className="h-9 w-auto rounded-lg object-contain" 
+    />
 
-        <RegistrationButton variant="outline-red" className="h-10 px-5 text-sm text-red-600" >
-          Inscribirme
-        </RegistrationButton>
-      </div>
+    <span>Sucre <span className="text-brand">Innova</span></span>
+  </a>
+
+  <div className="hidden md:flex items-center gap-8 text-sm text-dark-gray/70">
+    <a href="#retos" className="hover:text-dark-gray transition-colors">Retos</a>
+    <a href="#" className="hover:text-dark-gray transition-colors">Equipos</a>
+  </div>
+
+  <RegistrationButton variant="outline-red" className="h-10 px-5 text-sm text-red-600">
+    Inscribirme
+  </RegistrationButton>
+</div>
     </nav>
   );
 }
